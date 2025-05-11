@@ -1,0 +1,17 @@
+Part 3: Quicksort (ENG answer)
+
+ ** Reflection of Quicksort algorithm **
+
+I personally believe that Quicksort is one of the fastest sorting algorithm for large data sorting procedure. First of all, the divide-and-conquer nature of the algorithm makes it easier to solve problems. The average time complexity of it is O(n*log(n)), which is fairly feasible when we talks about a large quantities of data due to the massive reduction coming from the log operation. Secondly, comparing to another famous divide-and-conquer algorithm, which is Merge Sort, Quicksort is more Cache Friendly since it does not create auxiliary array. Moreover, the key process in quicksort is the partition function for choosing the pivot. With a correct pivot-choose algorithm as baseline, we can reduce significantly the time complexity of the algorithm.
+
+
+** Drawbacks & edges cases **
+
+Even though the general time-complexity of the algorithm is O(n*log(n)), which is pretty efficient even for the massive size of our dataset (thousands->millions), this depends on the choice of the pivot as well, since the worst complexity can be degraded down until O(n^2) if the pivot choice is poorly made (e.g always choose the largest of smallest value of the already sorted list). 
+
+Moreover, from the algorithm's definition, we know that the left side of the pivot contains the elements smaller and ***"EQUALS"*** to the pivot. Therefore, imagine an extreme case where all the elements in the data set are equal. Obviously, the set is already sorted (because once again all of the elements are equal), however, if we pass the set through the Quicksort algorithm, there's a high chance the algorithm will still be running for several times. This is because when choosing the pivot, even though the equal element are set on the left side, the algorithm still thinks that the list has not been sorted yet, and continue to choose a different pivot with the same value. This procedure does nothing (since our list is already sorted by seeing it visually ), and take up a bit more time.
+
+
+** Implementation in everyday projects ** 
+
+Honestly, if we talk about individuals (perhaps like me) who do not possess a large number of data having to deal with (in other words, small data set), there are probably other alternatives can be used with higher efficiency (merge sort could be one of them thanks to its time complexity consistency regardless of input order). However, if we talk about the professional scale where we are going to deal with humongous number of data, Quicksort is one of the most reliable algorithm to use.
